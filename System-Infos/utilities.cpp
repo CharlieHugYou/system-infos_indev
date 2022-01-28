@@ -22,7 +22,7 @@ void help_command(std::string file_path)
 void write_logs(std::string logs_to_write)
 {
 	// to code
-	std::ofstream file("lgos.txt");
+	std::ofstream file("logs.txt");
 }
 
 void read_logs()
