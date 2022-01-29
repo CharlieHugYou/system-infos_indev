@@ -5,7 +5,6 @@
 
 void help_command(std::string file_path) 
 {
-	// to code
 
 	std::ifstream file(file_path);
 	std::string stored_help_file_content;
