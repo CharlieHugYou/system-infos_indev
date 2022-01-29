@@ -7,60 +7,7 @@
 
 void writeSettings()
 {
-	std::ofstream logs_fstream("logs.set");
-	std::ofstream logs_send_fstream("logs-notif.send.set");
-
-	std::cout << "Menu des parametres" << std::endl
-		<< "  1. Logs	2. Affichage" << std::endl;
-
-	std::string userInput;
-
-	std::cin >> userInput;
-
-	if (userInput == "1" || "logs" || "Logs")
-	{
-		userInput = "";
-		system("cls");
-
-		std::cout << "1. Activation des logs	2. Notification des logs" << std::endl;
-
-		userInput = "";
-		std::cin >> userInput;
-
-		if (userInput == "1")
-		{
-
-			std::cout << "Activer l'ecriture des logs dans le fichier logs.txt ? [oui] [non] : ";
-
-			userInput = "";
-			std::cin >> userInput;
-
-			if (userInput == "oui" || "Oui")
-			{
-				logs_fstream << "on" << std::endl;
-			}
-			else if (userInput == "non" || "Non")
-			{
-				logs_fstream << "off" << std::endl;
-			}
-		}
-
-		if (userInput == "2")
-		{
-			std::cout << "Activer l'envoie de notifications pour certaines logs importante ? [oui] [non] : ";
-
-			std::cin >> userInput;
-
-			if (userInput == "oui" || "Oui")
-			{
-				logs_send_fstream << "on" << std::endl;
-			}
-			else if (userInput == "non" || "Non")
-			{
-				logs_send_fstream << "off" << std::endl;
-			}
-		}
-	}
+	// re code de la fonction prévue
 }
 
 void readSettingsFile()
