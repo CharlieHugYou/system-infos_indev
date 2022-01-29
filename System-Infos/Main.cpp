@@ -9,11 +9,11 @@ void dev();
 
 int main()
 {
-	dev();
+	//dev();
 
 	system("cls");
-	/*load();
-	checkFirstConnection();*/
+	load();
+	checkFirstConnection();
 
 	return 0;
 }
@@ -27,33 +27,37 @@ void menu()
 {
 	std::string userInput;
 
-	std::cout << "Menu principale" << std::endl
-		<< "| -- > 1. Acceder au menu des commande" << std::endl
-		<< "| -- > 2. Parametre" << std::endl
-		<< "| -- > 3. Quitte" << std::endl
-		<< "Commande rapide : /help" << std::endl;
-
-	std::cin >> userInput;
-
-	if (userInput == "1" || "command")
+	while (true)
 	{
-		command();
-	}
+		std::cout << "Menu principale" << std::endl
+			<< "| -- > 1. Acceder au menu des commande" << std::endl
+			<< "| -- > 2. Parametre" << std::endl
+			<< "| -- > 3. Quitte" << std::endl
+			<< "Commande rapide : /help" << std::endl;
 
-	if (userInput == "2" || "set" || "settings" || "parametre")
-	{
-		writeSettings();
-	}
+		std::cin >> userInput;
 
-	if (userInput == "3" || "quitte")
-	{
-		exit(1);
-	}
+		if (userInput == "1")
+		{
+			command();
+		}
 
-	if (userInput == "/help")
-	{
-		system("cls");
-		help_command("help.data.show");
+		if (userInput == "2")
+		{
+			writeSettings();
+		}
+
+		if (userInput == "3")
+		{
+			exit(1);
+		}
+
+		if (userInput == "/help")
+		{
+			system("cls");
+			help_command("help.data.show");
+			continue;
+		}
 	}
 }
 
@@ -63,8 +67,6 @@ void command()
 	std::cout << "Type a command" << std::endl;
 }
 
-
-// pour tester la fonction de test et les autres fonction qui arriveront et que je dois tester en dehors d'un ajout dans un code déjà présent
 void dev()
 {
 	while (true)
@@ -72,6 +74,8 @@ void dev()
 		text("test", "red", "stay");
 		text("test2", "", "jump-line");
 		text("test3", "green", "stay");
+
+		std::cout << text("alala", "", "jump-line");
 		break;
 	}
 	std::cin.ignore();
