@@ -40,11 +40,11 @@ void read_logs()
 
 std::string text(std::string text_to_show, std::string text_color, std::string action)
 {
-	if (text_color == "" && action == "jump-line") // saute une ligne
+	if (text_color == "white" && action == "jump-line") // saute une ligne
 	{
 		std::cout << text_to_show << WHI << std::endl;
 	}
-	else if (text_color == "" && action == "stay") // ne saute pas de ligne
+	else if (text_color == "white" && action == "stay") // ne saute pas de ligne
 	{
 		std::cout << text_to_show << WHI;
 	}
