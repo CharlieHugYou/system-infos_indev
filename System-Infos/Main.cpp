@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include "pass.h"
 #include "settings.h"
@@ -30,7 +31,7 @@ void menu()
 	while (true)
 	{
 		std::cout << "Menu principale" << std::endl
-			<< "| -- > 1. Acceder au menu des commande" << std::endl
+			<< "| -- > 1. Acceder au menu des commandes" << std::endl
 			<< "| -- > 2. Parametre" << std::endl
 			<< "| -- > 3. Quitte" << std::endl
 			<< "Commande rapide : /help" << std::endl;
@@ -40,11 +41,14 @@ void menu()
 		if (userInput == "1")
 		{
 			command();
+			continue;
 		}
 
 		if (userInput == "2")
 		{
-			writeSettings();
+			system("cls");
+			settingsMenu();
+			continue;
 		}
 
 		if (userInput == "3")
@@ -63,20 +67,33 @@ void menu()
 
 void command()
 {
+	user user;
+
+	std::string userCommand;
+
+	std::ifstream read_user_name_file("user.data");
+
+	read_user_name_file >> user.name;
+
 	system("cls");
-	std::cout << "Type a command" << std::endl;
+	while (true)
+	{
+		std::cout << "Menu principal -> Commande/" << user.name << ": ";
+		std::cin >> userCommand;
+
+		if (userCommand == "menu")
+		{
+			// retourne au menu
+			break;
+		}
+	}
+
 }
 
 void dev()
 {
-	while (true)
-	{
-		text("test", "red", "stay");
-		text("test2", "", "jump-line");
-		text("test3", "green", "stay");
-
-		std::cout << text("alala", "", "jump-line");
-		break;
-	}
+	write_logs("test");
+	read_logs();
+	
 	std::cin.ignore();
 }
