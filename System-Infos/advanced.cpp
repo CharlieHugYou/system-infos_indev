@@ -25,8 +25,3 @@ void activate()
 		read_user_file << user.name << "\n" << "true";
 	}
 }
-
-/*
-	si je fais un truc pour avoir le userName, c'est pour pouvoir écrire l'activation des commandes avancé 
-	et ne prendre en compte le userName
-*/
