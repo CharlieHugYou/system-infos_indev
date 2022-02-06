@@ -1,3 +1,6 @@
+// en d√©v
+
+
 #include "advanced.h"
 #include "utilities.h"
 #include "settings.h"
@@ -24,6 +27,6 @@ void activate()
 }
 
 /*
-	si je fais un truc pour avoir le userName, c'est pour pouvoir Ècrire l'activation des commandes avancÈ 
+	si je fais un truc pour avoir le userName, c'est pour pouvoir √©crire l'activation des commandes avanc√© 
 	et ne prendre en compte le userName
 */
