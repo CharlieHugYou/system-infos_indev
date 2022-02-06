@@ -11,4 +11,4 @@
 
 -L'application sera disponible pour en premier Windows, puis Linux, étant donné qu'avoir accès a une Machines MacOS n'est pas donné a tout le monde, je vais me focalisé sur les version Windows et Linux
 
-Version actuel du projet dev-O.1
+Version actuel du projet dev-0.1
