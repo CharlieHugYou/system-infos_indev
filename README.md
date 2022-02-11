@@ -11,6 +11,6 @@
 
 -L'application sera disponible pour en premier Windows, puis Linux, étant donné qu'avoir accès a une Machines MacOS n'est pas donné a tout le monde, je vais me focalisé sur les version Windows et Linux
 
--A quoi ça sert ? Vous donner des infos sur votre ordinateur, notament la ref des composants (assez pratique pour les pc déjà monté), quantité de ram, etc etc...
+-A quoi ça sert ? Vous donner des infos sur votre ordinateur, notament la ref des composants (assez pratique pour les pc déjà monté), quantité de ram, etc etc..., de manière précise !
 
 Version actuel du projet dev-0.1
