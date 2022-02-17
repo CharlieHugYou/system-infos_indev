@@ -5,7 +5,6 @@
 
 void help_command(std::string file_path) 
 {
-
 	std::ifstream file(file_path);
 	std::string stored_help_file_content;
 
@@ -24,13 +23,26 @@ void help_command(std::string file_path)
 
 void write_logs(std::string logs_to_write)
 {
-	// to code
-	std::ofstream file("logs.txt");
+	std::ifstream Read_logs_files("logs.txt");
+
+	std::string stored_logs_file_Content;
+	std::getline(Read_logs_files, stored_logs_file_Content);
+
+	std::ofstream Write_logs_files("logs.txt");
+
+	Write_logs_files << stored_logs_file_Content << "\n" << logs_to_write << std::endl;
 }
 
 void read_logs()
 {
-	// to code
+	std::ifstream Read_logs_file("logs.txt");
+	std::string stored_file_content;
+	
+	while (std::getline(Read_logs_file, stored_file_content))
+	{
+		std::cout << stored_file_content << std::endl;
+	}
+	Read_logs_file.close();
 }
 
 // couleur pour la fonction text
@@ -73,7 +85,7 @@ std::string text(std::string text_to_show, std::string text_color, std::string a
 	if (action == "")
 	{
 		system("cls");
-		std::cout << "ERREUR : action param text funtion is NULL" << std::endl;
+		std::cout << "ERREUR : action param text funtion is NULL = error(invalide-content)" << std::endl;
 	}
 
 	return "";
