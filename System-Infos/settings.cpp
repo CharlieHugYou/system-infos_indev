@@ -271,7 +271,7 @@ void checkFirstConnection()
 			else if(stored_connect_number >= 1)
 			{
 				read_connect_number_file_Stream.close();
-				start();
+				menu();
 				break;
 			}
 			else if (stored_connect_number != 1 || 0)
@@ -291,7 +291,7 @@ void checkFirstConnection()
 void firstConnectProcess()
 {
 	writeSettingsConfigFirstConnect(); // regarder juste en dessous la fonction du processus de la première connection pour savoir ce que fais cette fonction
-	start();
+	menu();
 }
 
 void writeSettingsConfigFirstConnect() // fonction de paramètrage lors de la première connection
