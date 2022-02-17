@@ -8,6 +8,7 @@
 #include "Main.h"
 #include "utilities.h"
 #include "advanced.h"
+#include "emote.h"
 
 void dev();
 
@@ -29,6 +30,24 @@ void menu()
 	std::string userInput;
 
 	std::ifstream read_user_name_file("user.data");
+	std::string stored_user_file_content;
+
+	while (std::getline(read_user_name_file, stored_user_file_content))
+	{
+		if (stored_user_file_content == "true")
+		{
+			continue;
+		}
+		else if (stored_user_file_content == "false")
+		{
+			continue;
+		}
+		else
+		{
+			user.name = stored_user_file_content;
+		}
+	}
+
 
 	while (true)
 	{
@@ -37,6 +56,8 @@ void menu()
 			<< "| -- > 2. Parametre" << std::endl
 			<< "| -- > 3. Quitte" << std::endl
 			<< "Commande rapide : /help" << std::endl;
+
+		std::cout << user.name << " -> ";
 
 		std::cin >> userInput;
 
@@ -92,13 +113,14 @@ void command()
 		}
 	}
 
-
 	system("cls");
 	while (true)
 	{
-		std::cout << "Menu principal -> Commande/" << user.name << ": ";
+		std::cout << "Menu principal -> Command/" << user.name << ": ";
 		std::getline(std::cin, userCommand);
 		std::cout << std::endl;
+
+		// std::cin >> userCommand;
 
 		if (userCommand == "help")
 		{
@@ -129,31 +151,34 @@ void command()
 		}
 		if (userCommand == "version -infos")
 		{
-			text("Ferme le fichier pour continue d'utiliser le programme", "red", "jump-line");
-			system("changelogs.txt");
+			std::ifstream read_open_file_set("open-file.set");
+			std::string open_file_content;
+			read_open_file_set >> open_file_content;
+
+			if (open_file_content == "OFF")
+			{
+				help_command("changelogs.txt");
+			}
+			else if (open_file_content == "ON")
+			{
+				text("Ferme le fichier pour continuer d'utiliser le programme", "red", "jump-line");
+				system("changelogs.txt");
+			}
+			continue;
 		}
 
-		if (userCommand == "discord")
+		if (userCommand == "links")
 		{
-			text("Lien de mon discord : https://discord.gg/6FgmgHkDv6", "white", "jump-line");
+			std::cout << "Repo Github : https://github.com/CharlieHugYou/system-infos_indev" << std::endl
+				<< "Serveur Discord : https://discord.gg/wNyn67naJV" << std::endl;
 		}
 
 		if (userCommand == "advanced -activate")
 		{
-			std::string advanceCommand;
-
-			while (std::getline(read_user_name_file, advanceCommand))
-			{
-				if (advanceCommand == user.name)
-				{
-					continue;
-				}
-				else if (advanceCommand == "true")
-				{
-					text("Les commandes avancer sont deja activer", "white", "jump-line");
-				}
-			}
+			verifAdvancedActived();
 		}
+
+		/* ajouté la demande de commande basique */
 
 		if (userCommand == "menu")
 		{
@@ -166,5 +191,8 @@ void command()
 
 void dev()
 {
+	emojies emote;
+	std::cout << emote.error << std::endl;
+
 	std::cin.ignore();
 }
