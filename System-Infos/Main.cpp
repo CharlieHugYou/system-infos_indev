@@ -22,11 +22,6 @@ int main()
 	return 0;
 }
 
-void start()
-{
-	menu();
-}
-
 void menu()
 {
 	user user;
