@@ -17,7 +17,8 @@ void settingsMenu()
 		std::cout << "Menu des parametres" << std::endl
 			<< "| -- > 1. Parametres d'affichage" << std::endl
 			<< "| -- > 2. Parametres des logs" << std::endl
-			<< "| -- > 3. Retourner au menu principale" << std::endl;
+			<< "| -- > 3. Ouverture de certains fichiers texte" << std::endl
+			<< "| -- > 4. Retourner au menu principale" << std::endl;
 
 		std::cin >> userInput;
 
@@ -34,6 +35,12 @@ void settingsMenu()
 		}
 
 		if (userInput == "3")
+		{
+			writeSettings(3);
+			continue;
+		}
+
+		if (userInput == "4")
 		{
 			system("cls");
 			break;
@@ -57,7 +64,7 @@ void writeSettings(int goto_menu)
 
 			std::string stored_display_settings_value;
 			read_display_settings >> stored_display_settings_value;
-				 	
+
 			text("Menu des parametres -> affichage", "white", "jump-line");
 
 			std::cout << "| -- > Le parametre des couleur du text est en " << stored_display_settings_value << std::endl;
@@ -112,7 +119,6 @@ void writeSettings(int goto_menu)
 			}
 		}
 	}
-
 
 	if (goto_menu == 2)
 	{
@@ -237,13 +243,66 @@ void writeSettings(int goto_menu)
 					}
 				}
 			}
+
+			if (userInput == "3")
+			{
+				system("cls");
+				break;
+			}
 		}
 	}
-}
 
-void readSettingsFile()
-{
-	// to do
+	if (goto_menu == 3)
+	{
+		text("Le programme peut avoir besoin d'ouvrir des fichiers pour vous facilité la lecture de ses dernier", "white", "jump-line");
+		
+		std::ifstream read_open_file_set("open-file.set");
+
+		std::string open_file_set_Content;
+
+		while (read_open_file_set >> open_file_set_Content)
+		{
+			if (open_file_set_Content == "ON")
+			{
+				std::cout << "La valeur est en ON, veux tu passer la veleur en OFF [oui] [non] : ";
+				std::cin >> userInput;
+
+				if (userInput == "oui")
+				{
+					std::ofstream write_open_file_set("open-file.set");
+
+					write_open_file_set << "OFF";
+
+					std::cout << "Passage de la veleur en OFF" << std::endl;
+				}
+
+				if (userInput == "non")
+				{
+					continue;
+				}
+			}
+
+			if (open_file_set_Content == "OFF")
+			{
+				std::cout << "La valeur est en OFF, veux tu passer la veleur en ON [oui] [non] : ";
+				std::cin >> userInput;
+
+				if (userInput == "oui")
+				{
+					std::ofstream write_open_file_set("open-file.set");
+
+					write_open_file_set << "ON";
+
+					std::cout << "Passage de la valeur en ON" << std::endl;
+				}
+
+				if (userInput == "non")
+				{
+					continue;
+				}
+			}
+		}
+	}
 }
 
 void checkFirstConnection()
@@ -322,13 +381,15 @@ void writeSettingsConfigFirstConnect() // fonction de paramètrage lors de la pr
 			if (userInput == "oui")
 			{
 				write_display_settings << "ON";
-				std::cin.ignore();
+				std::cout << "Affichage du texte en couleur : " << text("ON", "green", "jump-line");
 			}
 
 			if (userInput == "non")
 			{
 				write_display_settings << "OFF";
+				std::cout << "Affichage du texte en couleur : " << text("OFF", "white", "jump-line");
 			}
+			write_display_settings.close();
 
 			std::cout << "Veux tu que le programme ecrive des logs dans le fichier des logs [oui] [non] : ";
 
@@ -337,27 +398,50 @@ void writeSettingsConfigFirstConnect() // fonction de paramètrage lors de la pr
 			if (userInput == "oui")
 			{
 				write_logs_settings << "ON";
-				// std::cout << "Ecriture de logs : \x1B[32mON\033[0m\t\t\n" << std::endl;
-				text("Ecriture de logs", "green", "jump-line");
-				Sleep(2000);
 
-				system("cls");
+				std::ifstream read_text_display("text-display.set");
+				std::string read_text_display_content;
+				read_text_display >> read_text_display_content;
+				
+				if (read_text_display_content == "ON")
+				{
+					std::cout << "Ecriture de logs : " << text("ON", "green", "jump-line");
+				}
+				else if (read_text_display_content == "OFF")
+				{
+					std::cout << "Ecriture de logs : " << text("ON", "white", "jump-line");
+				}
 
-				std::cout << "Veux tu recevoir des notifications sur ton ordinateur si il y en a besoin [oui] [non] : ";
+				text("Tu veux que le logiciel envoie des notificaition sur ton pc ? [oui] [non]", "white", "stay");
 				std::cin >> userInput;
 
 				if (userInput == "oui")
 				{
-					std::cout << "Envoie de notification : \x1B[32mON\033[0m\t\t\n" << std::endl;
 					write_logs_notif_settings << "ON";
-					userInput = "";
+
+					if (read_text_display_content == "ON")
+					{
+						std::cout << "Envoie de notifications : " << text("ON", "green", "jump-line");
+					}
+					else if (read_text_display_content == "OFF")
+					{
+						std::cout << "Envoie de notifications : " << text("ON", "white", "jump-line");
+					}
+
 				}
 
 				if (userInput == "non")
 				{
-					std::cout << "Envoie de notification : \x1B[31mOFF\033[0m\t\t\n" << std::endl;
 					write_logs_notif_settings << "OFF";
-					userInput = "";
+
+					if (read_text_display_content == "ON")
+					{
+						std::cout << "Envoie de notifications : " << text("OFF", "red", "jump-line");
+					}
+					else if (read_text_display_content == "OFF")
+					{
+						std::cout << "Envoie de notifications : " << text("OFF", "white", "jump-line");
+					}
 				}
 			}
 
@@ -365,7 +449,27 @@ void writeSettingsConfigFirstConnect() // fonction de paramètrage lors de la pr
 			{
 				std::cout << "Ecriture de logs : \x1B[31mOFF\033[0m\t\t\n" << std::endl;
 				write_logs_settings << "OFF";
-				userInput = "";			
+				userInput = "";
+			}
+
+			std::cout << "veux tu que le programme ouvre des fichiers dans un application exertene a System-infos [oui] [non] : ";
+			std::cin >> userInput;
+
+			if (userInput == "oui")
+			{
+				if (userInput == "oui")
+				{
+					std::ofstream write_open_file_set("open-file.set");
+
+					write_open_file_set << "ON";
+				}
+
+				if (userInput == "non")
+				{
+					std::ofstream write_open_file_set("open-file.set");
+
+					write_open_file_set << "OFF";
+				}
 			}
 
 			system("cls");
@@ -373,7 +477,7 @@ void writeSettingsConfigFirstConnect() // fonction de paramètrage lors de la pr
 			std::cout << "Entre ton nom d'utilisateur : ";
 			std::cin >> user.name;
 
-			write_user_name << user.name;
+			write_user_name << user.name << "\n" << "false";
 
 			std::cout << "Ton nom est : " << user.name << std::endl;
 
