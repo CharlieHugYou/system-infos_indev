@@ -5,20 +5,44 @@
 #include <iostream>
 #include <fstream>
 #include <Windows.h>
+#include <string>
 
 void settingsMenu()
 {
+	user user;
+
 	std::string userInput;
+
+	std::ifstream read_user_name_file("user.data");
+	std::string stored_user_file_content;
+
+	while (std::getline(read_user_name_file, stored_user_file_content))
+	{
+		if (stored_user_file_content == "true")
+		{
+			continue;
+		}
+		else if (stored_user_file_content == "false")
+		{
+			continue;
+		}
+		else
+		{
+			user.name = stored_user_file_content;
+		}
+	}
 
 	while (true)
 	{
 		system("cls");
 
-		std::cout << "Menu des parametres" << std::endl
+		std::cout << "Menu princiapel -> Menu des parametres" << std::endl
 			<< "| -- > 1. Parametres d'affichage" << std::endl
 			<< "| -- > 2. Parametres des logs" << std::endl
 			<< "| -- > 3. Ouverture de certains fichiers texte" << std::endl
 			<< "| -- > 4. Retourner au menu principale" << std::endl;
+
+		std::cout << "Menu principale/Settings/" << user.name;
 
 		std::cin >> userInput;
 
@@ -51,7 +75,6 @@ void settingsMenu()
 void writeSettings(int goto_menu)
 {
 	system("cls");
-
 
 	std::string userInput;
 	
@@ -308,7 +331,7 @@ void writeSettings(int goto_menu)
 void checkFirstConnection()
 {
 
-	std::ifstream read_connect_number_file_Stream("connect-number.data");
+	std::fstream read_connect_number_file_Stream("connect-number.data");
 	
 	int stored_connect_number = 0;
 	read_connect_number_file_Stream >> stored_connect_number; // change la valeur de stored_connect_number avec le contenue du fichier
@@ -344,6 +367,7 @@ void checkFirstConnection()
 	else
 	{
 		std::cout << "Inpossible d'ouvrir le fichier" << std::endl;
+		std::cin.ignore();
 	}
 }
 
