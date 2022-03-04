@@ -1,0 +1,15 @@
+help : Affiche toutes les commandes
+
+clear : Supprime tout te textes qui est dans la console
+
+logs : Affiche le text contenue dans le fichier logs.txt, vous pouvez aussi ourvir le fichier depuis l'explorateur de fichiers
+
+version -list : Affiche la liste des versions qui sont en publique
+version -launch : Affiche la version qui est actuellement lancer
+version -infos : Ouvre le fichier de change-logs
+
+discord : Affiche le lien de mon discord pour tout mes projets de programmation (quelques trucs sont a modifié)
+
+advanced -activate : Vous permet d'avoir acces a toutes les commandes avancer //(encore en dév)\\
+
+menu : Vous ramene au menu principale

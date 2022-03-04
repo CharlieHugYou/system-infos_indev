@@ -1,0 +1,2 @@
+Merci de ne pas touché aux fichiers/dossiers commençant par un point, si vous les modifier avec une valeur incorrecte le programme ne pourat pas fonctionner correctement
+faites en sorte de les modifié avec une bonne valeur si vous le faites, mais ne venez pas dire que mon programme ne fonctionne pas
