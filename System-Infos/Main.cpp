@@ -179,7 +179,7 @@ void command()
 			verifAdvancedActived();
 		}
 
-		/* ajoutÃ© la demande de commande basique */
+		/* ajouté la demande de commande basique */
 
 		if (userCommand == "menu")
 		{

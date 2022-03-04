@@ -1,6 +1,3 @@
-// en dév
-
-
 #include "advanced.h"
 #include "utilities.h"
 #include "settings.h"
@@ -33,10 +30,12 @@ void activate()
 	}
 
 	std::string userInput;
-	text("Pour acceder a toutes les commmandes de System-Infos, tu dois activer toutes les commandes", "white", "jump-line");
-	text("Ecris [active] pour activer toutes les commandes ou [desactive]", "write", "jumpe-line");
+	
 
-	std::cout << "Menu principal -> Command/Advanced" << user.name << ": ";
+	std::cout << "Pour acceder a toutes les commmandes de System-Infos, tu dois activer toutes les commandes" << std::endl
+		<< "Ecris [active] pour activer toutes les commandes" << std::endl;
+
+	std::cout << "Menu principal/Command/Advanced/" << user.name << ": ";
 
 
 	std::cin >> userInput;
@@ -51,6 +50,7 @@ void activate()
 		{
 			if (stored_user_file_content == "true")
 			{
+				
 				continue;
 			}
 			else if (stored_user_file_content == "false")
@@ -70,7 +70,7 @@ void activate()
 		write_user_file << user.name << "\n" << "true";
 	}
 
-	
+	read_user_name_file.close();
 }
 
 void verifAdvancedActived()
@@ -90,10 +90,16 @@ void verifAdvancedActived()
 		else if (stored_content_file == "true")
 		{
 			text("Commande avancer deja activer", "white", "jump-line");
+			break;
 		}
 		else if (stored_content_file == "false")
 		{
 			activate();
 		}
 	}
+}
+
+void advancedCommandSelector()
+{
+
 }

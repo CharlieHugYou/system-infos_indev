@@ -1,0 +1,2 @@
+test de la fonction write_logs();
+test

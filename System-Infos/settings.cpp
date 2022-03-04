@@ -277,7 +277,7 @@ void writeSettings(int goto_menu)
 
 	if (goto_menu == 3)
 	{
-		text("Le programme peut avoir besoin d'ouvrir des fichiers pour vous facilit√© la lecture de ses dernier", "white", "jump-line");
+		text("Le programme peut avoir besoin d'ouvrir des fichiers pour vous facilitÈ la lecture de ses dernier", "white", "jump-line");
 		
 		std::ifstream read_open_file_set("open-file.set");
 
@@ -373,11 +373,11 @@ void checkFirstConnection()
 
 void firstConnectProcess()
 {
-	writeSettingsConfigFirstConnect(); // regarder juste en dessous la fonction du processus de la premi√®re connection pour savoir ce que fais cette fonction
+	writeSettingsConfigFirstConnect(); // regarder juste en dessous la fonction du processus de la premiËre connection pour savoir ce que fais cette fonction
 	menu();
 }
 
-void writeSettingsConfigFirstConnect() // fonction de param√®trage lors de la premi√®re connection
+void writeSettingsConfigFirstConnect() // fonction de paramËtrage lors de la premiËre connection
 {
 	user user;
 
@@ -514,4 +514,4 @@ void writeSettingsConfigFirstConnect() // fonction de param√®trage lors de la pr
 	}
 }
 
-// Si tu vois √ßa sache que tu es magnifique
+// Si tu vois Áa sache que tu es magnifique

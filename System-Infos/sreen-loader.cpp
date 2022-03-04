@@ -10,12 +10,12 @@ void load()
 	user user;
 
 	/*
-		VÃ©rification des fichiers de sauvegarde 
-		Si il en manque un seul le programme le signale, affiche tout les fichiers qui sont censÃ© Ãªtre prÃ©sent
+		Vérification des fichiers de sauvegarde 
+		Si il en manque un seul le programme le signale, affiche tout les fichiers qui sont censé être présent
 		Puis l'utilisateur.ice.x doit ajouter le/les fichier.s manquant
 	*/
 
-	// crÃ©ation des streams des fichiers
+	// création des streams des fichiers
 
 	// .set files
 	std::ifstream checkLogs_set_file("logs.set");

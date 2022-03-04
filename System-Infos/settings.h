@@ -8,14 +8,13 @@ void settingsMenu();
 void writeSettings(int goto_menu);
 void writeSettingsConfigFirstConnect();
 
-void readSettingsFile();
-
 void checkFirstConnection();
 void firstConnectProcess();
 
 struct user
 {
 	std::string name;
+	bool canUseAdvancedCommand = false;
 };
 
 // in sreen-loader.cpp file

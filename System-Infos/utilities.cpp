@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 
-void help_command(std::string file_path) 
+void display_file_content_command(std::string file_path) 
 {
 	std::ifstream file(file_path);
 	std::string stored_help_file_content;
@@ -36,12 +36,30 @@ void write_logs(std::string logs_to_write)
 void read_logs()
 {
 	std::ifstream Read_logs_file("logs.txt");
-	std::string stored_file_content;
+	std::string stored_logs_file_content;
 	
-	while (std::getline(Read_logs_file, stored_file_content))
+	std::ifstream read_open_file_settings("open-file.set");
+	std::string stored_open_file_set_content;
+	read_open_file_settings >> stored_open_file_set_content;
+	
+	while (read_open_file_settings)
 	{
-		std::cout << stored_file_content << std::endl;
+		if (stored_open_file_set_content == "ON")
+		{
+			std::cout << "Fichier ouvert avec succes" << std::endl;
+			system("logs.txt");
+			break;
+		}
+		else if (stored_open_file_set_content == "OFF")
+		{
+			while (std::getline(Read_logs_file, stored_logs_file_content))
+			{
+				std::cout << stored_logs_file_content << std::endl;
+			}
+		}
 	}
+
+	read_open_file_settings.close();
 	Read_logs_file.close();
 }
 

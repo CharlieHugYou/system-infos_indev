@@ -2,3 +2,4 @@
 
 void start();
 void menu();
+void command();

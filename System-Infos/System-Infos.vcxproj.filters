@@ -16,6 +16,9 @@
     <Filter Include="new">
       <UniqueIdentifier>{87750e7c-ed64-485f-bb44-04b2a6eafbb2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\dev kit">
+      <UniqueIdentifier>{0c07477e-823d-4b22-b28a-44d70e4f09da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -30,7 +33,10 @@
     <ClCompile Include="sreen-loader.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="logs.cpp">
+    <ClCompile Include="utilities.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="advanced.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +50,13 @@
     <ClInclude Include="Main.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="logs.h">
+    <ClInclude Include="utilities.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="advanced.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="emote.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -61,10 +73,28 @@
     <None Include="connect-number.data">
       <Filter>Fichiers de ressources</Filter>
     </None>
+    <None Include="help.data.show">
+      <Filter>Fichiers de ressources\dev kit</Filter>
+    </None>
+    <None Include="text-display.set">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="help_command.data.show">
+      <Filter>Fichiers de ressources\dev kit</Filter>
+    </None>
+    <None Include="open-file.set">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="set.set">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="changelogs.txt">
       <Filter>new</Filter>
+    </Text>
+    <Text Include="logs.txt">
+      <Filter>Fichiers de ressources\dev kit</Filter>
     </Text>
   </ItemGroup>
 </Project>
