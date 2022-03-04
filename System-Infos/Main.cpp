@@ -3,21 +3,18 @@
 #include <string>
 #include <Windows.h>
 
-#include "pass.h"
+#include "pass.h" // to code
 #include "settings.h"
 #include "Main.h"
 #include "utilities.h"
 #include "advanced.h"
-#include "emote.h"
 
 void dev();
 
 int main()
 {
-	// dev();
-
-	system("cls");
-	load();
+	system("cls"); // pour clear le texte du terminal de base.
+	// load();
 	checkFirstConnection();
 
 	return 0;
@@ -47,7 +44,6 @@ void menu()
 			user.name = stored_user_file_content;
 		}
 	}
-
 
 	while (true)
 	{
@@ -82,7 +78,7 @@ void menu()
 		if (userInput == "/help")
 		{
 			system("cls");
-			help_command("help.data.show");
+			display_file_content_command("help.data.show");
 			continue;
 		}
 	}
@@ -112,20 +108,22 @@ void command()
 			user.name = stored_user_file_content;
 		}
 	}
-
+		
 	system("cls");
 	while (true)
 	{
-		std::cout << "Menu principal -> Command/" << user.name << ": ";
-		std::getline(std::cin, userCommand);
+		std::cout << "Menu/Command/" << user.name << " : ";
+		while (!std::getline(std::cin, userCommand));
 		std::cout << std::endl;
 
-		// std::cin >> userCommand;
-
+		if (userCommand == "")
+		{
+			system("cls");
+		}
 		if (userCommand == "help")
 		{
 			system("cls");
-			help_command("help_command.data.show");
+			display_file_content_command("help_command.data.show");
 			continue;
 		}
 
@@ -157,24 +155,27 @@ void command()
 
 			if (open_file_content == "OFF")
 			{
-				help_command("changelogs.txt");
+				display_file_content_command("changelogs.txt");
 			}
 			else if (open_file_content == "ON")
 			{
 				text("Ferme le fichier pour continuer d'utiliser le programme", "red", "jump-line");
 				system("changelogs.txt");
 			}
+
+			read_open_file_set.close();
 			continue;
 		}
 
 		if (userCommand == "links")
 		{
-			std::cout << "Repo Github : https://github.com/CharlieHugYou/system-infos_indev" << std::endl
+			std::cout << "\n" << "Repo Github : https://github.com/CharlieHugYou/system-infos_indev" << std::endl
 				<< "Serveur Discord : https://discord.gg/wNyn67naJV" << std::endl;
 		}
 
 		if (userCommand == "advanced -activate")
 		{
+			system("cls");
 			verifAdvancedActived();
 		}
 
@@ -182,17 +183,14 @@ void command()
 
 		if (userCommand == "menu")
 		{
-			// retourne au menu
+			system("cls");
 			break;
 		}
 	}
-
 }
 
 void dev()
 {
-	emojies emote;
-	std::cout << emote.error << std::endl;
 
 	std::cin.ignore();
 }
