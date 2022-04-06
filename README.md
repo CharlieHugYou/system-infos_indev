@@ -1,8 +1,5 @@
 Status de développement-> aucune mise a jour du repo sera faites pour le moment
 
-**Pour le moment aucun ajout ne sera effectuer sur le repo. Je ferais une grosse mise a jour quand le moment sera venuet surtout quand il y aura pleins de chose qui seront modifié.**
-
-
 # system-infos
 **Pour les débutant.e.x pour compiler le code il vous faut Visual Studio 2022 pour commencé, et juste cliqué sur le bouton "Débogueur Windows local"**
 
