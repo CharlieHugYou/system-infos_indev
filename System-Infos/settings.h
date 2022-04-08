@@ -16,6 +16,3 @@ struct user
 	std::string name;
 	bool canUseAdvancedCommand = false;
 };
-
-// in sreen-loader.cpp file
-void load();
