@@ -3,7 +3,6 @@
 #include <string>
 #include <Windows.h>
 
-#include "pass.h" // to code
 #include "settings.h"
 #include "Main.h"
 #include "utilities.h"
@@ -14,7 +13,6 @@ void dev();
 int main()
 {
 	system("cls"); // pour clear le texte du terminal de base.
-	// load();
 	checkFirstConnection();
 
 	return 0;
@@ -179,7 +177,7 @@ void command()
 			verifAdvancedActived();
 		}
 
-		/* ajouté la demande de commande basique */
+		/* ajoutÃ© la demande de commande basique */
 
 		if (userCommand == "menu")
 		{
